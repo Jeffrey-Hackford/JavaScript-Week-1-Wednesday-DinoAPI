@@ -1,19 +1,15 @@
 var apiKey = require('./../.env').apiKey;
 var dinoArray = [];
 var Dino = require('./../js/dino.js').DinoModule;
-var fakeDinos = ["testasaurous", "fakeasaurous", "a", "b", "c"];
-
-$(document).ready(function(){
-
-var dinoTest = new Dino();
+var fakeDinos = ["testasaurous.", "fakeasaurous.", "a.", "b.", "c."];
 
 var displayDino = function(dinos) {
-  console.log(dinos);
-  console.log("Hi");
-
   dinoArray.push(dinos);
-  console.log(dinoArray);
 };
+
+$(document).ready(function(){
+var dinoTest = new Dino();
+
 
   $('#dino').submit(function(event) {
     event.preventDefault();
@@ -22,26 +18,9 @@ var displayDino = function(dinos) {
     dinoArray.push(fakeDinos[randomPick]);
 
     dinoTest.getDino(displayDino);
-
-    // $.get(apiKey).then(function(response){
-    //   var dinos = response;
-    //   dinoArray.push(dinos);
-    // });
-    // $.get(apiKey).then(function(response){
-    //   var dinos = response;
-    //   dinoArray.push(dinos);
-    // });
-    // var Dino1 = dinoTest.getDino();
-    // dinoArray.push(Dino1);
-    //
-    // var Dino2 = dinoTest.getDino();
-    // dinoArray.push(Dino2);
-    //
-
-
-    // console.log(dinoArray);
-    // dinoArray= [];
-
+    dinoTest.getDino(displayDino);
+    console.log(dinoArray);
+    dinoArray= [];
   });
 });
 
